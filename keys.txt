@@ -1,0 +1,17 @@
+Marvel:
+    public: 6dfb16dbb9427c1c0dde0f4dcf5f9884
+    private: c110b1366287649fb082c50e068a6b6cc2d56c5f
+    limit: 3000 calls per day
+    url: http://marvel.com
+
+LCBO:
+    key: MDo4NzIyYzRkYS03MDI1LTExZTgtYjRhOC00ZjdlMzc1NjY3ZmM6WWJhYUVhMnkzN0lxSUVER2ozSnYwd0RCMXZEQ3NQaGl2MEFT
+    limit: 1200 calls per hour
+    url: https://lcboapi.com/products?access_key=ACCESS_KEY
+
+Yummly:
+    key:
+    username: hushangn
+    password: 3/35.69ct
+
+
