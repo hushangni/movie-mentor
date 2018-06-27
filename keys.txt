@@ -10,8 +10,23 @@ LCBO:
     url: https://lcboapi.com/products?access_key=ACCESS_KEY
 
 Yummly:
-    key:
+    key: 6851251cda458fdc3d679ed3308eabd2
+    application ID(send with each request): 7813049a
     username: hushangn
     password: 3/35.69ct
+    url: https://developer.yummly.com/documentation
+
+Potter:
+    key: $2a$10$2d4rrdI/3CTU/0GD7NWE0OaA42IXIr5W6usDNCOi7U2aAjswkXVau
+    email: shangnihu@gmail.com
+    password: 3/35.69ct
+    url: https://www.potterapi.com/#introduction
+
+Etsy:
+    key: 70mxqpkq18uk4k75hchjjpmf
+    shared secret: d9amdtjyw0
+    email: shangnihu@gmail.com
+    backup codes: 611353041, 973715675, 703999714
+    url: https://www.etsy.com/developers/documentation/getting_started/api_basics
 
 
