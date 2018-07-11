@@ -9,6 +9,12 @@ LCBO:
     limit: 1200 calls per hour
     url: https://lcboapi.com/products?access_key=ACCESS_KEY
 
+The Movie DB:
+    key: 0f074982f0e6a999d59865dff2184e86
+    access token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwZjA3NDk4MmYwZTZhOTk5ZDU5ODY1ZGZmMjE4NGU4NiIsInN1YiI6IjViNDY4N2ExYzNhMzY4NTdmNzAwMDExMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.OTX_meVGkoQYa9YPpEM0VCO0QyFVuVe7MIwEBznNesU
+    url: https://api.themoviedb.org/3/movie/550
+    docs: https://developers.themoviedb.org/3/getting-started/authentication
+
 Yummly:
     key: 6851251cda458fdc3d679ed3308eabd2
     application ID(send with each request): 7813049a

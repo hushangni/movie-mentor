@@ -1,20 +1,37 @@
-const marvelApp = {};
-marvelApp.publicKey = '6dfb16dbb9427c1c0dde0f4dcf5f9884';
-marvelApp.privateKey = 'c110b1366287649fb082c50e068a6b6cc2d56c5f';
-const ts = new Date().getTime();
-const stringToHash = ts + marvelApp.privateKey + marvelApp.publicKey;
-const hash = md5(stringToHash);
+const insideApp = {};
 
-marvelApp.getHeroes = () => {
+const lcboURL = 'http://lcboapi.com/products';
+const moviesURL = 'https://api.themoviedb.org/3/movie/550';
+
+insideApp.lcboKey = 'MDo4NzIyYzRkYS03MDI1LTExZTgtYjRhOC00ZjdlMzc1NjY3ZmM6WWJhYUVhMnkzN0lxSUVER2ozSnYwd0RCMXZEQ3NQaGl2MEFT';
+insideApp.moviesKey = '0f074982f0e6a999d59865dff2184e86';
+
+insideApp.getDrinks = () => {
     $.ajax({
-        url: 'https://gateway.marvel.com:443/v1/public/creators?apikey=6dfb16dbb9427c1c0dde0f4dcf5f9884'
+        url: lcboURL,
+        method: 'GET',
+        dataType: 'jsonp',
+        data: {
+            apikey: insideApp.lcboKey
+        }
     }).then(function(res) {
         console.log(res);
     })
 }
 
-marvelApp.init = () => {
-    marvelApp.getHeroes();
+insideApp.getMovies = () => {
+    $.ajax({
+        url: `https://api.themoviedb.org/3/movie/popular?api_key=${insideApp.moviesKey}`,
+        method: 'GET',
+        dataType: 'jsonp',
+    }).then(function(res) {
+        console.log(res);
+    })
+}
+
+insideApp.init = () => {
+    insideApp.getDrinks();
+    insideApp.getMovies();
 }
 
 
@@ -22,6 +39,7 @@ marvelApp.init = () => {
 $(function() {
     console.log("Ready");
 
-    marvelApp.init();
+    insideApp.init();
+
 
 });
