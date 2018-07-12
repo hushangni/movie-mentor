@@ -41,5 +41,18 @@ $(function() {
 
     insideApp.init();
 
+    // Konami code
+    // const pressed = [];
+    // const secretCode = 'stayin';
+    // window.addEventListener('keyup', (e) => {
+    //     pressed.push(e.key);
+    //     pressed.splice(-secretCode.length - 1, pressed.length - secretCode);
+    //     console.log(pressed);
+    //     if (pressed.join('').includes(secretCode)) {
+    //         console.log('DING DING!');
+    //         cornify_add();
+    //     }
+    // });
+
 
 });
