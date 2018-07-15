@@ -1,10 +1,7 @@
 const insideApp = {};
 
 const lcboURL = 'http://lcboapi.com/products';
-const moviesURL = 'https://api.themoviedb.org/3/movie/550';
-
 insideApp.lcboKey = 'MDo4NzIyYzRkYS03MDI1LTExZTgtYjRhOC00ZjdlMzc1NjY3ZmM6WWJhYUVhMnkzN0lxSUVER2ozSnYwd0RCMXZEQ3NQaGl2MEFT';
-insideApp.moviesKey = '0f074982f0e6a999d59865dff2184e86';
 
 insideApp.getDrinks = () => {
     $.ajax({
@@ -19,15 +16,55 @@ insideApp.getDrinks = () => {
     })
 }
 
+const moviesURL = 'https://api.themoviedb.org/3/';
+insideApp.moviesKey = '0f074982f0e6a999d59865dff2184e86';
+
+const baseMovieImageURL = 'https://image.tmdb.org/t/p/';
+let configData = null;
+let movieToSearch = prompt();
+
 insideApp.getMovies = () => {
-    $.ajax({
-        url: `https://api.themoviedb.org/3/movie/popular?api_key=${insideApp.moviesKey}`,
-        method: 'GET',
-        dataType: 'jsonp',
-    }).then(function(res) {
-        console.log(res);
+    let url = "".concat(moviesURL, 'configuration?api_key=', insideApp.moviesKey); 
+    fetch(url)
+    .then((result)=>{
+        return result.json();
+    })
+    .then((data)=>{
+        configData = data.images;
+        console.log('config:', data);
+        console.log('config fetched');
+        insideApp.searchMovies(movieToSearch);
+    })
+    .catch(function(err){
+        alert(err);
+    });
+}
+
+insideApp.searchMovies = (keyword) => {
+    let url = ''.concat(moviesURL, 'search/movie?api_key=', insideApp.moviesKey, '&query=', keyword);
+    fetch(url)
+    .then(result=>result.json())
+    .then((data)=>{
+        //process the returned data
+        console.log("movie returned:", data.results[0]);
+
+        const movie = {
+            movieTitle: data.results[0].original_title,
+            moviePosterURL: baseMovieImageURL+'w185'+ data.results[0].poster_path,
+            movieDesc: data.results[0].overview
+        };
+        // const moviePosterURL = data.results[0].poster_path;
+        // const movieTitle = data.results[0].original_title;
+
+        document.getElementById('movies').innerHTML = `
+        <h3>${movie.movieTitle}</h3>
+        <img src="${movie.moviePosterURL}"/>
+        <p>${movie.movieDesc}</p>
+        `;
+        
     })
 }
+
 
 insideApp.init = () => {
     insideApp.getDrinks();
