@@ -1,15 +1,15 @@
-const insideApp = {};
+const mentorApp = {};
 
 // const lcboURL = 'http://lcboapi.com/products';
-// insideApp.lcboKey = 'MDo4NzIyYzRkYS03MDI1LTExZTgtYjRhOC00ZjdlMzc1NjY3ZmM6WWJhYUVhMnkzN0lxSUVER2ozSnYwd0RCMXZEQ3NQaGl2MEFT';
+// mentorApp.lcboKey = 'MDo4NzIyYzRkYS03MDI1LTExZTgtYjRhOC00ZjdlMzc1NjY3ZmM6WWJhYUVhMnkzN0lxSUVER2ozSnYwd0RCMXZEQ3NQaGl2MEFT';
 
-// insideApp.getDrinks = () => {
+// mentorApp.getDrinks = () => {
 //     $.ajax({
 //         url: lcboURL,
 //         method: 'GET',
 //         dataType: 'jsonp',
 //         data: {
-//             apikey: insideApp.lcboKey
+//             apikey: mentorApp.lcboKey
 //         }
 //     }).then(function(res) {
 //         console.log(res);
@@ -17,14 +17,14 @@ const insideApp = {};
 // }
 
 const moviesURL = 'https://api.themoviedb.org/3/';
-insideApp.moviesKey = '0f074982f0e6a999d59865dff2184e86';
+mentorApp.moviesKey = '0f074982f0e6a999d59865dff2184e86';
 
 const baseMovieImageURL = 'https://image.tmdb.org/t/p/';
 let configData = null;
 let movieToSearch = 'captain';
 
-insideApp.getMovies = () => {
-    let url = "".concat(moviesURL, 'configuration?api_key=', insideApp.moviesKey); 
+mentorApp.getMovies = () => {
+    let url = "".concat(moviesURL, 'configuration?api_key=', mentorApp.moviesKey); 
     fetch(url)
     .then((result)=>{
         return result.json();
@@ -33,15 +33,15 @@ insideApp.getMovies = () => {
         configData = data.images;
         console.log('config:', data);
         console.log('config fetched');
-        insideApp.searchMovies(movieToSearch);
+        mentorApp.searchMovies(movieToSearch);
     })
     .catch(function(err){
         alert(err);
     });
 }
 
-insideApp.searchMovies = (keyword) => {
-    let url = ''.concat(moviesURL, 'search/movie?api_key=', insideApp.moviesKey, '&query=', keyword);
+mentorApp.searchMovies = (keyword) => {
+    let url = ''.concat(moviesURL, 'search/movie?api_key=', mentorApp.moviesKey, '&query=', keyword);
     fetch(url)
     .then(result=>result.json())
     .then((data)=>{
@@ -68,9 +68,9 @@ insideApp.searchMovies = (keyword) => {
 }
 
 
-insideApp.init = () => {
-    // insideApp.getDrinks();
-    insideApp.getMovies();
+mentorApp.init = () => {
+    // mentorApp.getDrinks();
+    mentorApp.getMovies();
 }
 
 
@@ -79,10 +79,10 @@ $(function() {
 
     console.log("Ready");
 
-    insideApp.init();
+    mentorApp.init();
 
     const pressed = [];
-    const secretCode = 'stayin';
+    const secretCode = 'movie';
     window.addEventListener('keyup', (e) => {
         console.log(e.key);
         pressed.push(e.key);

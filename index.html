@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Stay Inside</title>
+    <title>Movie Mentor</title>
     <!-- link to google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
     <!-- link to style sheets -->
@@ -14,12 +14,12 @@
 <body>
     <!-- Header -->
     <header class="wrapper">
-        <h2 class="head-question">need entertainment? too lazy to go out?</h2>
+        <h2 class="head-question">got the movie itch, but unsure of what to watch?</h2>
         <div id="logo">
-            <h1 class="stay">stay</h1>
-            <h3 class="inside">Inside</h3>
+            <h1 class="movie">movie</h1>
+            <h3 class="mentor">mentor</h3>
         </div>
-        <h3 class="tagline">movie recommendations based on your current, lazy, feelings</h3>
+        <h3 class="tagline">movie recommendations made easy</h3>
         <!-- action = which div id to jump to -->
         <form action="#laziness">
             <input type="submit" id="beginButton" value="Get Started"/>
@@ -27,26 +27,27 @@
     </header>
     
     <!-- Main Quiz -->
+    <!-- laziness -->
     <div id="laziness" class="wrapper">
             <h2>your mental energy levels are at a...</h2>
             <ul class="laziness">
                 <li class="lazy-icons">
-                    <img src="lazy-icons/001-hyped.png" alt="fist pumped person icon">
-                    <input type="radio" name="energy" class="energy" id="hyped">
+                    <img src="imgs/001-hyped.png" alt="fist pumped person icon">
+                    <input type="radio" name="energy" class="energy" id="hyped" value="hyped">
                     <label for="hyped">
                         <p>10</p>
                     </label>
                 </li>
                 <li class="lazy-icons">
-                    <img src="lazy-icons/002-meh.png" alt="indifferent person icon">
-                    <input type="radio" name="energy" class="energy" id="meh">
+                    <img src="imgs/002-meh.png" alt="indifferent person icon">
+                    <input type="radio" name="energy" class="energy" id="meh" value="meh">
                     <label for="meh">
                         <p>5</p>
                     </label>
                 </li>
                 <li class="lazy-icons">
-                    <img src="lazy-icons/003-lazy.png" alt="lying down person icon">
-                    <input type="radio" name="energy" class="energy" id="lazy">
+                    <img src="imgs/003-lazy.png" alt="lying down person icon">
+                    <input type="radio" name="energy" class="energy" id="lazy" value="lazy">
                     <label for="lazy">
                         <p>-3156728</p>
                     </label>
@@ -56,29 +57,52 @@
                 <input type="submit" id="beginButton" value="next"/>
             </form>
     </div>
-
+    
+    <!-- genre -->
     <div id="genre" class="wrapper">
         <h2>the best tales have...</h2>
         <ul class="genre">
             <li class="genre-types">
-                <input type="radio" name="movie-genre" class="movie-genre" id="twist">
+                <input type="radio" name="movie-genre" class="movie-genre" id="twist" value="twist">
                 <label for="twist">
                     <p class="genre-selection">an unseen twist</p>
                 </label>
             </li>
             <div class="divider"></div>
             <li class="genre-types">
-                <input type="radio" name="movie-genre" class="movie-genre" id="hero">
+                <input type="radio" name="movie-genre" class="movie-genre" id="hero" value="hero">
                 <label for="hero">
                     <p class="genre-selection">a dynamic hero</p>
                 </label>
             </li>
-               
+        </ul>
+        <form action="#time">
+            <input type="submit" class="next-button" value="next"/>
+        </form>   
+    </div>
+    
+    <!-- time period -->
+    <div id="time" class="wrapper">
+        <h2>movies are...</h2>
+        <ul class="time">
+            <li class="time-periods">
+                <img src="imgs/004-timeless.png" alt="timeless clock icon">
+                <input type="radio" name="time-period" class="time-period" id="timeless" value="timeless">
+                <label for="timeless">
+                    <p class="time-selection">timeless</p>
+                </label>
+            </li>
+            <li class="time-periods">
+                <img src="imgs/005-modern.png" alt="modern play button icon">
+                <input type="radio" name="time-period" class="time-period" id="modern" value="modern">
+                <label for="modern">
+                    <p class="time-selection">modern</p>
+                </label>
+            </li>
         </ul>
         <form action="#">
             <input type="submit" class="next-button" value="next"/>
-        </form>   
-        
+        </form>  
     </div>
 
     <!-- Results -->

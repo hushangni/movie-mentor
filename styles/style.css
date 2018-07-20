@@ -49,14 +49,14 @@ li {
   text-transform: lowercase;
 }
 
-.stay {
+.movie {
   position: relative;
 /*  background-image: -webkit-linear-gradient(#378DBC 0%, #B6E8F1 46%, #ffffff 50%, #32120E 54%, #FFC488 58%, #582C11 90%, #EC9B4E 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;*/
   top: -30px;
   -webkit-text-stroke: 4px #f5f5f5;
-  font-size: 30vw;
+  font-size: 25vw;
   font-family: 'Titillium Web', sans-serif;
   font-style: italic;
   margin: 0;
@@ -64,17 +64,17 @@ li {
   color: #642edb;
 }
 
-.inside {
+.mentor {
   position: absolute;
   margin: 0px;
   font-family: 'Mr Dafoe', cursive;
-  font-size: 20vw;
+  font-size: 18vw;
   color: #F975F7 ;
   transform:rotate(-10deg);
   -ms-transform:rotate(-10deg); /* IE 9 */
   -webkit-transform:rotate(-10deg); /* Safari and Chrome */
   margin-left: 20%;
-  margin-top: -20%;
+  margin-top: -18%;
   -webkit-text-stroke: 1px #f008b7;
   -webkit-filter: drop-shadow(2px 2px 20px #f008b7);
   z-index: 20;
@@ -172,3 +172,27 @@ input[type=radio]:checked + label {
   margin: 0;
 }
 
+.time {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 100px;
+  position: relative;
+  text-align: center;
+}
+
+.time-periods {
+  text-align: center;
+}
+
+.time-periods img{
+  width: 100%;
+  max-width: 70px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.time-selection {
+  font-size: 2.3em;
+}
