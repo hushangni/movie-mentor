@@ -13,8 +13,8 @@
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <h2>need entertainment? too lazy to go out?</h2>
+    <header class="wrapper">
+        <h2 class="head-question">need entertainment? too lazy to go out?</h2>
         <div id="logo">
             <h1 class="stay">stay</h1>
             <h3 class="inside">Inside</h3>
@@ -27,10 +27,51 @@
     </header>
     
     <!-- Main Quiz -->
-    <div id="laziness">
-            <h2>How lazy are we feelin'?</h2>
-            
-            
+    <div id="laziness" class="wrapper">
+            <h2>your mental energy levels are at a...</h2>
+            <ul class="laziness">
+                <li class="lazy-icons">
+                    <img src="lazy-icons/001-hyped.png" alt="fist pumped person icon">
+                    <input type="radio" name="energy" class="energy" id="hyped">
+                    <label for="hyped">
+                        <p>10</p>
+                    </label>
+                </li>
+                <li class="lazy-icons">
+                    <img src="lazy-icons/002-meh.png" alt="indifferent person icon">
+                    <input type="radio" name="energy" class="energy" id="meh">
+                    <label for="meh">
+                        <p>5</p>
+                    </label>
+                </li>
+                <li class="lazy-icons">
+                    <img src="lazy-icons/003-lazy.png" alt="lying down person icon">
+                    <input type="radio" name="energy" class="energy" id="lazy">
+                    <label for="lazy">
+                        <p>-3156728</p>
+                    </label>
+                </li>
+            </ul>   
+    </div>
+
+    <div id="genre" class="wrapper">
+        <h2>the best tales have...</h2>
+        <ul class="genre">
+            <li class="genre-types">
+                <input type="radio" name="movie-genre" class="movie-genre" id="twist">
+                <label for="twist">
+                    <p class="genre-selection">an unseen twist</p>
+                </label>
+            </li>
+            <li class="genre-types">
+                <input type="radio" name="movie-genre" class="movie-genre" id="hero">
+                <label for="hero">
+                    <p class="genre-selection">a dynamic hero</p>
+                </label>
+            </li>
+               
+        </ul>   
+        
     </div>
 
     <!-- Results -->
