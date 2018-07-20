@@ -2,7 +2,7 @@
 @import url(https://fonts.googleapis.com/css?family=Titillium+Web:900);
 
 *{
- /* border: 1px solid lightblue;*/
+/*  border: 1px solid lightblue;*/
 }
 
 body {
@@ -81,10 +81,10 @@ li {
 }
 
 .tagline {
-  margin-top: 90px;
+  margin-top: 70px;
 }
 
-#beginButton{
+input[type=submit] {
   transition: 0.3s;
   border: none;
   background: transparent;
@@ -97,7 +97,7 @@ li {
   margin-top: 10px;
 }
 
-#beginButton:hover {
+input[type=submit]:hover {
   background: white;
   color: #9673E0;
 }
@@ -146,6 +146,29 @@ input[type=radio]:checked + label {
   padding: 20px;
 }
 
+.genre {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 40px;
+  position: relative;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.divider{
+    position: absolute;
+    left:50%;
+    top:30%;
+    bottom:10%;
+    border-left:1px solid white;
+    height: 50%;
+    align-self: center;
+    justify-self: center;
+}
+
 .genre-selection {
   font-size: 4em;
+  padding: 50px 20px;
+  margin: 0;
 }
+
