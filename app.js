@@ -1,4 +1,8 @@
 const mentorApp = {};
+mentorApp.Genres = {
+    hero: ['Action', 'Fantasy', 'Romance'],
+    twist: ['Drama', 'Mystery', 'Horror']
+}
 
 const moviesURL = 'https://api.themoviedb.org/3/';
 mentorApp.moviesKey = '0f074982f0e6a999d59865dff2184e86';
@@ -61,10 +65,15 @@ mentorApp.init = () => {
 $('form').on('submit', (e) =>{
     e.preventDefault();
     mentorApp.userEnergy = $('input[name=energy]:checked').val();
+    $('input[name=movie-genre]:checked').val() == 'hero' ? mentorApp.userGenre = mentorApp.Genre[0][mentorApp.userEnergy] : mentorApp.userGenre = mentorApp.Genre[1][mentorApp.userEnergy];
     mentorApp.userGenre = $('input[name=movie-genre]:checked').val();
+    mentorApp.userReleaseDate = $('input[name=time-period]:checked').val();
+    mentorApp.userRating = $('input[name=rating]:checked').val();
 
     console.log('user energy: ', mentorApp.userEnergy);
     console.log('user genre: ', mentorApp.userGenre);
+    console.log('user release date: ', mentorApp.userReleaseDate);
+    console.log('user rating: ', mentorApp.userRating);
 
 })
 
