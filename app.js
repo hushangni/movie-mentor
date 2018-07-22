@@ -1,7 +1,7 @@
 const mentorApp = {};
 mentorApp.Genres = {
-    hero: ['Action', 'Fantasy', 'Romance'],
-    twist: ['Drama', 'Mystery', 'Horror']
+    hero: ['Romance', 'Fantasy', 'Action'],
+    twist: ['Horror', 'Mystery', 'Drama']
 }
 
 const moviesURL = 'https://api.themoviedb.org/3/';
@@ -62,11 +62,15 @@ mentorApp.init = () => {
     mentorApp.getMovies();
 }
 
-$('form').on('submit', (e) =>{
+$('form').on('submit', (e) => {
+
+});
+
+$('.results-button').on('submit', (e) =>{
     e.preventDefault();
+
     mentorApp.userEnergy = $('input[name=energy]:checked').val();
-    $('input[name=movie-genre]:checked').val() == 'hero' ? mentorApp.userGenre = mentorApp.Genre[0][mentorApp.userEnergy] : mentorApp.userGenre = mentorApp.Genre[1][mentorApp.userEnergy];
-    mentorApp.userGenre = $('input[name=movie-genre]:checked').val();
+    $('input[name=movie-genre]:checked').val() == 'hero' ? mentorApp.userGenre = mentorApp.Genres.hero[mentorApp.userEnergy] : mentorApp.userGenre = mentorApp.Genres.twist[mentorApp.userEnergy];
     mentorApp.userReleaseDate = $('input[name=time-period]:checked').val();
     mentorApp.userRating = $('input[name=rating]:checked').val();
 
@@ -75,7 +79,7 @@ $('form').on('submit', (e) =>{
     console.log('user release date: ', mentorApp.userReleaseDate);
     console.log('user rating: ', mentorApp.userRating);
 
-})
+});
 
 
 // document ready
@@ -89,6 +93,7 @@ $(function() {
         location.reload();
         $('html').scrollTop(0);
     })
+
 
     // konami code unicorn fun
     const pressed = [];
