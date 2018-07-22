@@ -1,21 +1,4 @@
 const mentorApp = {};
-let mentorApp.laziness;
-
-// const lcboURL = 'http://lcboapi.com/products';
-// mentorApp.lcboKey = 'MDo4NzIyYzRkYS03MDI1LTExZTgtYjRhOC00ZjdlMzc1NjY3ZmM6WWJhYUVhMnkzN0lxSUVER2ozSnYwd0RCMXZEQ3NQaGl2MEFT';
-
-// mentorApp.getDrinks = () => {
-//     $.ajax({
-//         url: lcboURL,
-//         method: 'GET',
-//         dataType: 'jsonp',
-//         data: {
-//             apikey: mentorApp.lcboKey
-//         }
-//     }).then(function(res) {
-//         console.log(res);
-//     })
-// }
 
 const moviesURL = 'https://api.themoviedb.org/3/';
 mentorApp.moviesKey = '0f074982f0e6a999d59865dff2184e86';
@@ -34,6 +17,8 @@ mentorApp.getMovies = () => {
         configData = data.images;
         console.log('config:', data);
         console.log('config fetched');
+
+        // mentorApp.searchGenre();
         mentorApp.searchMovies(movieToSearch);
     })
     .catch(function(err){
@@ -70,18 +55,33 @@ mentorApp.searchMovies = (keyword) => {
 
 
 mentorApp.init = () => {
-    // mentorApp.getDrinks();
     mentorApp.getMovies();
 }
+
+$('form').on('submit', (e) =>{
+    e.preventDefault();
+    mentorApp.userEnergy = $('input[name=energy]:checked').val();
+    mentorApp.userGenre = $('input[name=movie-genre]:checked').val();
+
+    console.log('user energy: ', mentorApp.userEnergy);
+    console.log('user genre: ', mentorApp.userGenre);
+
+})
 
 
 // document ready
 $(function() {
-
     console.log("Ready");
-
     mentorApp.init();
 
+    // listen for restart button click
+    const restartButton = document.getElementById('restartButton');
+    restartButton.addEventListener('click', () => {
+        location.reload();
+        $('html').scrollTop(0);
+    })
+
+    // konami code unicorn fun
     const pressed = [];
     const secretCode = 'movie';
     window.addEventListener('keyup', (e) => {
