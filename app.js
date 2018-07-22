@@ -1,4 +1,5 @@
 const mentorApp = {};
+let mentorApp.laziness;
 
 // const lcboURL = 'http://lcboapi.com/products';
 // mentorApp.lcboKey = 'MDo4NzIyYzRkYS03MDI1LTExZTgtYjRhOC00ZjdlMzc1NjY3ZmM6WWJhYUVhMnkzN0lxSUVER2ozSnYwd0RCMXZEQ3NQaGl2MEFT';

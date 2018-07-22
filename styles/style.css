@@ -2,7 +2,7 @@
 @import url(https://fonts.googleapis.com/css?family=Titillium+Web:900);
 
 *{
-/*  border: 1px solid lightblue;*/
+ /* border: 1px solid lightblue;*/
 }
 
 body {
@@ -104,6 +104,13 @@ input[type=submit]:hover {
 
 
 /******************* Main Quiz *******************/
+.quiz-wrapper{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  text-align: center;
+}
+
 p {
   font-size: 1.5em;
   padding: 10px;
@@ -147,10 +154,7 @@ input[type=radio]:checked + label {
 }
 
 .genre {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   grid-gap: 40px;
-  position: relative;
   justify-content: center;
   margin-bottom: 30px;
 }
@@ -166,18 +170,14 @@ input[type=radio]:checked + label {
     justify-self: center;
 }
 
-.genre-selection {
+.selection {
   font-size: 4em;
   padding: 50px 20px;
   margin: 0;
 }
 
 .time {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   grid-gap: 100px;
-  position: relative;
-  text-align: center;
 }
 
 .time-periods {
@@ -195,4 +195,9 @@ input[type=radio]:checked + label {
 
 .time-selection {
   font-size: 2.3em;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
 }

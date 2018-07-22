@@ -61,18 +61,18 @@
     <!-- genre -->
     <div id="genre" class="wrapper">
         <h2>the best tales have...</h2>
-        <ul class="genre">
+        <ul class="genre quiz-wrapper">
             <li class="genre-types">
                 <input type="radio" name="movie-genre" class="movie-genre" id="twist" value="twist">
                 <label for="twist">
-                    <p class="genre-selection">an unseen twist</p>
+                    <p class="selection">an unseen twist</p>
                 </label>
             </li>
             <div class="divider"></div>
             <li class="genre-types">
                 <input type="radio" name="movie-genre" class="movie-genre" id="hero" value="hero">
                 <label for="hero">
-                    <p class="genre-selection">a dynamic hero</p>
+                    <p class="selection">a dynamic hero</p>
                 </label>
             </li>
         </ul>
@@ -84,7 +84,7 @@
     <!-- time period -->
     <div id="time" class="wrapper">
         <h2>movies are...</h2>
-        <ul class="time">
+        <ul class="time quiz-wrapper">
             <li class="time-periods">
                 <img src="imgs/004-timeless.png" alt="timeless clock icon">
                 <input type="radio" name="time-period" class="time-period" id="timeless" value="timeless">
@@ -100,16 +100,41 @@
                 </label>
             </li>
         </ul>
-        <form action="#">
+        <form action="#ratings">
             <input type="submit" class="next-button" value="next"/>
         </form>  
+    </div>
+
+    <!-- ratings -->
+    <div id="ratings" class="wrapper">
+        <h2>rotten tomatoes &#127813</h2>
+        <ul class="ratings quiz-wrapper">
+            <li class="rating">
+                <input type="radio" name="rating" class="rating" id="nothing" value="unimportant">
+                <label for="nothing">
+                    <p class="selection">means jack $8!t to me</p>
+                </label>
+            </li>
+            <div class="divider"></div>
+            <li class="rating">
+                <input type="radio" name="rating" class="rating" id="something" value="important">
+                <label for="something">
+                    <p class="selection">is helpful city</p>
+                </label>
+            </li>
+        </ul>
+        <!-- results button -->
+        <div class="results-button" id="resultsButton">
+            <input type="submit" class="results-button" value="give me my movie"/>
+        </div>
     </div>
 
     <!-- Results -->
     <div id="movie">
         
     </div>
-
+    
+    <!-- load scripts -->
     <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="app.js">
