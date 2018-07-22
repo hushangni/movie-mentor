@@ -1,8 +1,10 @@
 const mentorApp = {};
-mentorApp.Genres = {
+mentorApp.genres = {
     hero: ['Romance', 'Fantasy', 'Action'],
     twist: ['Horror', 'Mystery', 'Drama']
 }
+mentorApp.scrollPoints = ['#laziness', '#genre', '#time', '#ratings', '#result'];
+mentorApp.scrollPath = 'file:///Users/shangnihu/Desktop/summer-2018-js/advanced/project3/index.html?';
 
 const moviesURL = 'https://api.themoviedb.org/3/';
 mentorApp.moviesKey = '0f074982f0e6a999d59865dff2184e86';
@@ -57,20 +59,34 @@ mentorApp.searchMovies = (keyword) => {
     })
 }
 
-
+// initialize
 mentorApp.init = () => {
     mentorApp.getMovies();
 }
 
-$('form').on('submit', (e) => {
+//smooth scrolls to the given target
+mentorApp.smoothScroll = function(e) {
+    for (let i = 0; i < mentorApp.scrollPoints.length; i++) {
+        if (e.currentTarget.action == `${mentorApp.scrollPath}${mentorApp.scrollPoints[i]}`) {
+            document.querySelector(mentorApp.scrollPoints[i]).scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+    }
+}
 
+// smooth scroll effect
+$('form').on('submit', (e) => {
+    e.preventDefault();
+    mentorApp.smoothScroll(e);
 });
 
+// grab user inputs on final submit
 $('.results-button').on('submit', (e) =>{
     e.preventDefault();
 
     mentorApp.userEnergy = $('input[name=energy]:checked').val();
-    $('input[name=movie-genre]:checked').val() == 'hero' ? mentorApp.userGenre = mentorApp.Genres.hero[mentorApp.userEnergy] : mentorApp.userGenre = mentorApp.Genres.twist[mentorApp.userEnergy];
+    $('input[name=movie-genre]:checked').val() == 'hero' ? mentorApp.userGenre = mentorApp.genres.hero[mentorApp.userEnergy] : mentorApp.userGenre = mentorApp.genres.twist[mentorApp.userEnergy];
     mentorApp.userReleaseDate = $('input[name=time-period]:checked').val();
     mentorApp.userRating = $('input[name=rating]:checked').val();
 
