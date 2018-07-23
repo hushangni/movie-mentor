@@ -1,36 +1,71 @@
 const mentorApp = {};
+const moviesURL = 'https://api.themoviedb.org/3/';
+const baseMovieImageURL = 'https://image.tmdb.org/t/p/';
+mentorApp.moviesKey = '0f074982f0e6a999d59865dff2184e86';
 mentorApp.genres = {
-    hero: ['Romance', 'Fantasy', 'Action'],
-    twist: ['Horror', 'Mystery', 'Drama']
+    hero: ['romance', 'fantasy', 'action'],
+    twist: ['horror', 'mystery', 'drama']
 }
+
+mentorApp.keywords = {
+    romance: {
+        important: {
+            modern: ['shape of water'],
+            timeless: []
+        },
+
+        unimportant: {
+            modern: ['twilight'],
+            timeless: []
+        }
+    },
+    fantasy: {
+        important: {
+            modern: ['ready player', 'pan\'s labyrinth','doctor strange','curse black pearl','avatar','fantastic beasts', 'spiderwick', 'thor ragnarok', 'blade runner 2049'],
+            timeless: ['imaginarium of doctor', 'thief of bagdad', 'spirited away', 'edward scissor', 'solomon kane', 'spirit of beehive', 'orpheus', 'ugetsu']
+        },
+
+        unimportant: {
+            modern: ['narnia', 'night at museum', 'suicide squad', 'man of steel', 'percy jackson', 'ted', 'sausage party', 'click'],
+            timeless: ['son of the mask', '10,000 BC', 'the mummy', 'green mile', 'donnie darko', 'aliens']
+        }
+    }
+};
+mentorApp.actionKeywords = {
+    important: [
+
+    ],
+    unimportant: [
+
+    ]
+};
+mentorApp.horrorKeywords = {
+    important: [
+
+    ],
+    unimportant: [
+    
+    ]
+};
+mentorApp.mysteryKeywords = {
+    important: [
+
+    ],
+    unimportant: [
+    
+    ]
+};
+mentorApp.dramaKeywords = {
+    important: [
+
+    ],
+    unimportant: [
+    
+    ]
+};
+
 mentorApp.scrollPoints = ['#laziness', '#genre', '#time', '#ratings', '#result'];
 mentorApp.scrollPath = 'file:///Users/shangnihu/Desktop/summer-2018-js/advanced/project3/index.html?';
-
-const moviesURL = 'https://api.themoviedb.org/3/';
-mentorApp.moviesKey = '0f074982f0e6a999d59865dff2184e86';
-
-const baseMovieImageURL = 'https://image.tmdb.org/t/p/';
-let configData = null;
-let movieToSearch = 'captain';
-
-mentorApp.getMovies = () => {
-    let url = "".concat(moviesURL, 'configuration?api_key=', mentorApp.moviesKey); 
-    fetch(url)
-    .then((result)=>{
-        return result.json();
-    })
-    .then((data)=>{
-        configData = data.images;
-        console.log('config:', data);
-        console.log('config fetched');
-
-        // mentorApp.searchGenre();
-        mentorApp.searchMovies(movieToSearch);
-    })
-    .catch(function(err){
-        alert(err);
-    });
-}
 
 mentorApp.searchMovies = (keyword) => {
     let url = ''.concat(moviesURL, 'search/movie?api_key=', mentorApp.moviesKey, '&query=', keyword);
@@ -38,7 +73,6 @@ mentorApp.searchMovies = (keyword) => {
     .then(result=>result.json())
     .then((data)=>{
         //process the returned data
-        console.log("movie returned:", data.results[0]);
 
         const movie = {
             title: data.results[0].original_title,
@@ -46,8 +80,6 @@ mentorApp.searchMovies = (keyword) => {
             desc: data.results[0].overview,
             rating: data.results[0].vote_average
         };
-        // const moviePosterURL = data.results[0].poster_path;
-        // const movieTitle = data.results[0].original_title;
 
         document.getElementById('movie').innerHTML = `
         <h3>${movie.title}</h3>
@@ -61,7 +93,26 @@ mentorApp.searchMovies = (keyword) => {
 
 // initialize
 mentorApp.init = () => {
-    mentorApp.getMovies();
+    // mentorApp.getMovies();
+    // grab user inputs on final submit
+    $('.results-button').on('submit', (e) =>{
+        e.preventDefault();
+
+        mentorApp.userEnergy = $('input[name=energy]:checked').val();
+        $('input[name=movie-genre]:checked').val() == 'hero' ? mentorApp.userGenre = mentorApp.genres.hero[mentorApp.userEnergy] : mentorApp.userGenre = mentorApp.genres.twist[mentorApp.userEnergy];
+        mentorApp.userReleaseDate = $('input[name=time-period]:checked').val();
+        mentorApp.userRating = $('input[name=rating]:checked').val();
+
+        const possibleKeywords = mentorApp.keywords[mentorApp.userGenre][mentorApp.userRating][mentorApp.userReleaseDate];
+        const randomIndex = Math.floor((Math.random() * possibleKeywords.length));
+        mentorApp.searchMovies(possibleKeywords[randomIndex]);
+
+        console.log('user energy: ', mentorApp.userEnergy);
+        console.log('user genre: ', mentorApp.userGenre);
+        console.log('user release date: ', mentorApp.userReleaseDate);
+        console.log('user rating: ', mentorApp.userRating);
+
+    });
 }
 
 //smooth scrolls to the given target
@@ -81,21 +132,6 @@ $('form').on('submit', (e) => {
     mentorApp.smoothScroll(e);
 });
 
-// grab user inputs on final submit
-$('.results-button').on('submit', (e) =>{
-    e.preventDefault();
-
-    mentorApp.userEnergy = $('input[name=energy]:checked').val();
-    $('input[name=movie-genre]:checked').val() == 'hero' ? mentorApp.userGenre = mentorApp.genres.hero[mentorApp.userEnergy] : mentorApp.userGenre = mentorApp.genres.twist[mentorApp.userEnergy];
-    mentorApp.userReleaseDate = $('input[name=time-period]:checked').val();
-    mentorApp.userRating = $('input[name=rating]:checked').val();
-
-    console.log('user energy: ', mentorApp.userEnergy);
-    console.log('user genre: ', mentorApp.userGenre);
-    console.log('user release date: ', mentorApp.userReleaseDate);
-    console.log('user rating: ', mentorApp.userRating);
-
-});
 
 
 // document ready
