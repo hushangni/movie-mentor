@@ -7,7 +7,7 @@ mentorApp.genres = {
     twist: ['horror', 'comedy', 'drama']
 }
 mentorApp.scrollPoints = ['#laziness', '#genre', '#time', '#ratings', '#result'];
-mentorApp.scrollPath = 'file:///Users/shangnihu/Desktop/summer-2018-js/advanced/project3/index.html';
+mentorApp.scrollPath = window.location.href;
 mentorApp.keywords = {
     romance: {
         important: {
