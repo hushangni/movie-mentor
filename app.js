@@ -4,24 +4,26 @@ const baseMovieImageURL = 'https://image.tmdb.org/t/p/';
 mentorApp.moviesKey = '0f074982f0e6a999d59865dff2184e86';
 mentorApp.genres = {
     hero: ['romance', 'fantasy', 'action'],
-    twist: ['horror', 'mystery', 'drama']
+    twist: ['horror', 'comedy', 'drama']
 }
+mentorApp.scrollPoints = ['#laziness', '#genre', '#time', '#ratings', '#result'];
+mentorApp.scrollPath = 'file:///Users/shangnihu/Desktop/summer-2018-js/advanced/project3/index.html?';
 
 mentorApp.keywords = {
     romance: {
         important: {
-            modern: ['shape of water'],
-            timeless: []
+            modern: ['shape of water', 'crazy, stupid, love', 'mamma mia', 'moonlight', 'the handmaiden', 'her', 'lion','moonrise kingdom', 'up'],
+            timeless: ['forrest gump', 'la la land', 'brokeback mountain', 'pretty woman', '500 days', 'singing in the rain', 'letter from an unknown woman', 'amelie']
         },
 
         unimportant: {
-            modern: ['twilight'],
-            timeless: []
+            modern: ['twilight', 'benjamin button', 'fifty shades', 'the proposal', 'the theory of everything', 'passengers'],
+            timeless: ['moulin rouge', 'sleepless in seattle', 'scott pilgrim vs', 'titanic', 'say anything']
         }
     },
     fantasy: {
         important: {
-            modern: ['ready player', 'pan\'s labyrinth','doctor strange','curse black pearl','avatar','fantastic beasts', 'spiderwick', 'thor ragnarok', 'blade runner 2049'],
+            modern: ['ready player', 'pan\'s labyrinth','doctor strange','curse black pearl','avatar','fantastic beasts', 'spiderwick', 'thor ragnarok', 'blade runner 2049', 'the martian'],
             timeless: ['imaginarium of doctor', 'thief of bagdad', 'spirited away', 'edward scissor', 'solomon kane', 'spirit of beehive', 'orpheus', 'ugetsu']
         },
 
@@ -29,43 +31,52 @@ mentorApp.keywords = {
             modern: ['narnia', 'night at museum', 'suicide squad', 'man of steel', 'percy jackson', 'ted', 'sausage party', 'click'],
             timeless: ['son of the mask', '10,000 BC', 'the mummy', 'green mile', 'donnie darko', 'aliens']
         }
+    },
+    action: {
+        important: {
+            modern: ['mad max', 'zootopia', 'baby driver', 'spider-man: homecoming', 'moana', 'kubo', 'impossible rogue mission', 'guardians of the', 'black panther', 'looper', 'dark knight'],
+            timeless: ['king kong', 'adventures of robin hood', 'african queen', 'babe', 'raiders of the lost',  ]
+        },
+
+        unimportant: {
+            modern: ['jurassic world', 'the first purge', 'kingsman', 'die hard', 'v for vendetta', 'sicario'],
+            timeless: ['kill bill', 'fugitive', 'hunger games', 'assassins', 'equilibrium']
+        }
+    },
+    horror: {
+        important: {
+            modern: ['get out', 'a quiet place', 'the cured', 'hereditary', 'are we not cats', 'the endless'],
+            timeless: []
+        },
+
+        unimportant: {
+            modern: ['winchester', 'cloverfield paradox', 'the first purge'],
+            timeless: []
+        }
+    },
+    comedy: {
+        important: {
+            modern: ['get out', 'disaster artist'],
+            timeless: ['year old virgin', ]
+        },
+
+        unimportant: {
+            modern: [],
+            timeless: ['the room']
+        }
+    },
+    drama: {
+        important: {
+            modern: ['moonlight', 'room'],
+            timeless: ['slumdog millionaire', 'pulp fiction', 'memento', 'shawshank']
+        },
+
+        unimportant: {
+            modern: [],
+            timeless: []
+        }
     }
 };
-mentorApp.actionKeywords = {
-    important: [
-
-    ],
-    unimportant: [
-
-    ]
-};
-mentorApp.horrorKeywords = {
-    important: [
-
-    ],
-    unimportant: [
-    
-    ]
-};
-mentorApp.mysteryKeywords = {
-    important: [
-
-    ],
-    unimportant: [
-    
-    ]
-};
-mentorApp.dramaKeywords = {
-    important: [
-
-    ],
-    unimportant: [
-    
-    ]
-};
-
-mentorApp.scrollPoints = ['#laziness', '#genre', '#time', '#ratings', '#result'];
-mentorApp.scrollPath = 'file:///Users/shangnihu/Desktop/summer-2018-js/advanced/project3/index.html?';
 
 mentorApp.searchMovies = (keyword) => {
     let url = ''.concat(moviesURL, 'search/movie?api_key=', mentorApp.moviesKey, '&query=', keyword);
@@ -95,6 +106,7 @@ mentorApp.searchMovies = (keyword) => {
 mentorApp.init = () => {
     // mentorApp.getMovies();
     // grab user inputs on final submit
+    mentorApp.searchMovies('shawshank');
     $('.results-button').on('submit', (e) =>{
         e.preventDefault();
 
