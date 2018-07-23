@@ -203,12 +203,24 @@ input[type=radio]:checked + label {
 }
 
 /******************* Results  *******************/
+#movie img {
+  height: 220px;
+}
+
 .movie-desc {
-  font-size: 1.1em;
+  font-size: 1.05em;
+  margin: 5px;
 }
 
 .movie-title {
   font-size: 1.3em;
+}
+
+.movie-rating {
+  font-size: 1.4em;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 10px;
 }
 
 .made-by {

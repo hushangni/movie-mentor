@@ -96,7 +96,7 @@ mentorApp.searchMovies = (keyword) => {
         <h3 class="movie-title">${movie.title}</h3>
         <img src="${movie.posterURL}"/>
         <p class="movie-desc">${movie.desc}</p>
-        <p> Rating: ${movie.rating}</p>
+        <p class="movie-rating"> Rating: ${movie.rating}</p>
         `;
         
     })
